@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ImportLogs\Tables;
 
+use App\Services\ShopSyncService;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms;
@@ -10,6 +11,8 @@ class ImportLogsTable
 {
     public static function configure(Table $table): Table
     {
+        app(ShopSyncService::class)->syncFromApi();
+
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
