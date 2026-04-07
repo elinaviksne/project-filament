@@ -30,6 +30,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->brandName('PriceMatch Admin')
+            ->brandLogo(asset('images/pricematch-logo.png'))
+            ->brandLogoHeight('2.25rem')
             ->colors([
                 'primary' => Color::Amber,
             ])

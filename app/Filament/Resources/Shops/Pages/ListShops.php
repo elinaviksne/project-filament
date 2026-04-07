@@ -28,7 +28,9 @@ class ListShops extends ListRecords
                         ->success()
                         ->send();
                 }),
-            CreateAction::make()->label('Pievienot veikalu'),
+            CreateAction::make()
+                ->label('Pievienot veikalu')
+                ->color('primary'),
         ];
     }
 }
