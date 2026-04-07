@@ -18,14 +18,14 @@ class ListCategories extends ListRecords
         return [
             CreateAction::make(),
             Action::make('sync_categories')
-                ->label('Sinhronizēt no API')
+                ->label(__('app.categories.sync'))
                 ->icon('heroicon-o-arrow-path')
                 ->color('gray')
                 ->action(function (): void {
                     app(ShopSyncService::class)->syncAllFromApi();
 
                     Notification::make()
-                        ->title('Kategoriju dati sinhronizēti')
+                        ->title(__('app.categories.sync_done'))
                         ->success()
                         ->send();
                 }),

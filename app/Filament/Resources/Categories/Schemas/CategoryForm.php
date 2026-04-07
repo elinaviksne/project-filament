@@ -11,12 +11,12 @@ class CategoryForm
     {
         return $schema->schema([
             Forms\Components\TextInput::make('name')
-                ->label('Nosaukums')
+                ->label(__('app.common.name'))
                 ->required()
                 ->maxLength(255),
 
             Forms\Components\Select::make('parent_id')
-                ->label('Vecākā kategorija')
+                ->label(__('app.categories.parent'))
                 ->relationship('parent', 'name')
                 ->searchable()
                 ->preload()

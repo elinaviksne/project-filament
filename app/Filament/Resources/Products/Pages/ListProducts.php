@@ -18,14 +18,14 @@ class ListProducts extends ListRecords
         return [
             CreateAction::make(),
             Action::make('sync_products')
-                ->label('Sinhronizēt no API')
+                ->label(__('app.products.sync'))
                 ->icon('heroicon-o-arrow-path')
                 ->color('gray')
                 ->action(function (): void {
                     app(ShopSyncService::class)->syncAllFromApi();
 
                     Notification::make()
-                        ->title('Produktu dati sinhronizēti')
+                        ->title(__('app.products.sync_done'))
                         ->success()
                         ->send();
                 }),

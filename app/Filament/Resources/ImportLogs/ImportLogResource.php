@@ -42,12 +42,12 @@ class ImportLogResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return 'Importu žurnāls';
+        return __('app.nav.import_logs');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Analītika';
+        return __('app.nav.analytics');
     }
 
     public static function getPages(): array

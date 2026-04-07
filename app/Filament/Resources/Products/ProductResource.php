@@ -42,12 +42,12 @@ class ProductResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return 'Produkti';
+        return __('app.nav.products');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Analītika';
+        return __('app.nav.analytics');
     }
 
     public static function getPages(): array

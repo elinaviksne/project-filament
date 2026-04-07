@@ -17,7 +17,7 @@ class ShopsTable
             ->striped()
             ->columns([
                 Tables\Columns\TextColumn::make('logo')
-                    ->label('Logo')
+                    ->label(__('app.common.logo'))
                     ->getStateUsing(fn ($record) => $record->name)
                     ->formatStateUsing(function (string $state, $record): HtmlString {
                         $name = mb_strtolower(trim($record->name));
@@ -41,27 +41,27 @@ class ShopsTable
                     ->alignCenter(),
 
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Veikala nosaukums')
+                    ->label(__('app.shops.shop_name'))
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('status')
-                    ->label('Statuss')
+                    ->label(__('app.common.status'))
                     ->badge()
                     ->color(fn (string $state): string => $state === 'active' ? 'success' : 'gray')
-                    ->formatStateUsing(fn (string $state): string => $state === 'active' ? 'Aktīvs' : 'Neaktīvs'),
+                    ->formatStateUsing(fn (string $state): string => $state === 'active' ? __('app.common.active') : __('app.common.inactive')),
 
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label('Pēdējās izmaiņas')
+                    ->label(__('app.shops.last_updated'))
                     ->dateTime('d.m.Y H:i')
                     ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
-                    ->label('Statuss')
+                    ->label(__('app.common.status'))
                     ->options([
-                        'active' => 'Aktīvs',
-                        'inactive' => 'Neaktīvs',
+                        'active' => __('app.common.active'),
+                        'inactive' => __('app.common.inactive'),
                     ]),
             ])
             ->recordActions([

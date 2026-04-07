@@ -11,23 +11,23 @@ class ProductForm
     {
         return $schema->schema([
             Forms\Components\TextInput::make('name')
-                ->label('Nosaukums')
+                ->label(__('app.common.name'))
                 ->required()
                 ->maxLength(255),
 
             Forms\Components\TextInput::make('model')
-                ->label('Modelis')
+                ->label(__('app.products.model'))
                 ->required()
                 ->maxLength(255),
 
             Forms\Components\Select::make('category_id')
-                ->label('Kategorija')
+                ->label(__('app.products.category'))
                 ->relationship('category', 'name')
                 ->searchable()
                 ->preload(),
 
             Forms\Components\Select::make('brand_id')
-                ->label('Zīmols')
+                ->label(__('app.products.brand'))
                 ->relationship('brand', 'name')
                 ->searchable()
                 ->preload(),

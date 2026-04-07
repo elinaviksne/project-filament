@@ -42,12 +42,12 @@ class CategoryResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return 'Kategorijas';
+        return __('app.nav.categories');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Analītika';
+        return __('app.nav.analytics');
     }
 
     public static function getPages(): array

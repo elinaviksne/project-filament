@@ -14,25 +14,25 @@ class UserForm
     {
         return $schema->schema([
             Forms\Components\TextInput::make('name')
-                ->label('Vārds')
+                ->label(__('app.users.name'))
                 ->required()
                 ->maxLength(255),
 
             Forms\Components\TextInput::make('email')
-                ->label('E-pasts')
+                ->label(__('app.users.email'))
                 ->email()
                 ->required()
                 ->maxLength(255)
                 ->unique(ignoreRecord: true),
 
             Forms\Components\Toggle::make('is_admin')
-                ->label('Admin piekļuve')
+                ->label(__('app.users.admin_access'))
                 ->default(false)
                 ->disabled(fn (?User $record): bool => $record?->id === Auth::id())
-                ->helperText('Nevar noņemt admin tiesības pašam sev no šī ekrāna.'),
+                ->helperText(__('app.users.admin_self_hint')),
 
             Forms\Components\TextInput::make('password')
-                ->label('Parole')
+                ->label(__('app.users.password'))
                 ->password()
                 ->revealable()
                 ->required(fn (string $operation): bool => $operation === 'create')

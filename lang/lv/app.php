@@ -1,0 +1,117 @@
+<?php
+
+return [
+    'brand_name' => 'PriceMatch Admin',
+
+    'nav' => [
+        'shop_management' => 'Veikalu pārvaldība',
+        'analytics' => 'Analītika',
+        'user_management' => 'Lietotāju pārvaldība',
+        'shops' => 'Veikali',
+        'categories' => 'Kategorijas',
+        'products' => 'Produkti',
+        'import_logs' => 'Importu žurnāls',
+        'users' => 'Lietotāji',
+        'analytics_summary' => 'Kopsavilkums',
+    ],
+
+    'common' => [
+        'logo' => 'Logo',
+        'status' => 'Statuss',
+        'active' => 'Aktīvs',
+        'inactive' => 'Neaktīvs',
+        'name' => 'Nosaukums',
+        'shop' => 'Veikals',
+        'title' => 'Nosaukums',
+    ],
+
+    'shops' => [
+        'shop_name' => 'Veikala nosaukums',
+        'last_updated' => 'Pēdējās izmaiņas',
+        'api_url' => 'API URL',
+        'sync_all' => 'Sinhronizēt visus datus',
+        'sync_done' => 'Datu sinhronizācija pabeigta',
+        'add_shop' => 'Pievienot veikalu',
+    ],
+
+    'users' => [
+        'name' => 'Vārds',
+        'email' => 'E-pasts',
+        'password' => 'Parole',
+        'admin_access' => 'Admin piekļuve',
+        'admin_self_hint' => 'Nevar noņemt admin tiesības pašam sev no šī ekrāna.',
+        'admin_column' => 'Admin',
+        'updated' => 'Atjaunots',
+        'filter_admin' => 'Admin piekļuve',
+        'filter_all' => 'Visi',
+        'filter_admins_only' => 'Tikai admin',
+        'filter_users_only' => 'Tikai parastie',
+    ],
+
+    'categories' => [
+        'parent' => 'Vecākā kategorija',
+        'sync' => 'Sinhronizēt no API',
+        'sync_done' => 'Kategoriju dati sinhronizēti',
+    ],
+
+    'products' => [
+        'brand' => 'Zīmols',
+        'category' => 'Kategorija',
+        'model' => 'Modelis',
+        'search_placeholder' => 'Meklēt produktus...',
+        'sync' => 'Sinhronizēt no API',
+        'sync_done' => 'Produktu dati sinhronizēti',
+    ],
+
+    'import_logs' => [
+        'file_type' => 'Faila tips',
+        'imported' => 'Importēts',
+        'imported_today' => 'Importēts šodien',
+        'imported_between' => 'Importēts no/līdz',
+        'from' => 'No',
+        'until' => 'Līdz',
+        'search_placeholder' => 'Meklēt pēc veikala vai faila tipa...',
+    ],
+
+    'language' => [
+        'label' => 'Valoda',
+        'lv' => 'Latviešu',
+        'en' => 'English',
+    ],
+
+    'analytics' => [
+        'shop' => 'Veikals',
+        'all_shops' => 'Visi veikali',
+        'from_date' => 'No datuma',
+        'to_date' => 'Līdz datumam',
+        'filter' => 'Filtrēt',
+        'clear' => 'Notīrīt',
+        'total_shops' => 'Veikali kopā',
+        'active_shops' => 'Aktīvie veikali',
+        'offers' => 'Piedāvājumi',
+        'imports' => 'Importi',
+        'avg_price' => 'Vidējā cena',
+        'top_shops' => 'Top veikali pēc piedāvājumiem',
+        'col_shop' => 'Veikals',
+        'col_offers' => 'Piedāvājumi',
+        'col_avg_price' => 'Vidējā cena',
+        'no_data_filters' => 'Nav datu izvēlētajiem filtriem.',
+        'recent_imports' => 'Pēdējie importi',
+        'col_file_type' => 'Faila tips',
+        'col_imported_at' => 'Importēts',
+        'no_imports' => 'Nav importu ierakstu.',
+    ],
+
+    'welcome' => [
+        'log_in' => 'Pieteikties',
+        'dashboard' => 'Panelis',
+        'register' => 'Reģistrēties',
+        'hero_title' => 'Sāksim',
+        'hero_sub' => 'Laravel ir ārkārtīgi bagāta ekosistēma. Iesakām sākt ar šo.',
+        'docs_intro' => 'Lasīt',
+        'docs_link' => 'dokumentāciju',
+        'laracasts_intro' => 'Skatīt video pamācības vietnē',
+        'laracasts_link' => 'Laracasts',
+        'deploy' => 'Publicēt tagad',
+    ],
+];

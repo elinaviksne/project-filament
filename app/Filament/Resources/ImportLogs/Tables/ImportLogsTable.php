@@ -20,37 +20,37 @@ class ImportLogsTable
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('shop.name')
-                    ->label('Veikals')
+                    ->label(__('app.common.shop'))
                     ->sortable()
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('file_type')
-                    ->label('Faila tips')
+                    ->label(__('app.import_logs.file_type'))
                     ->sortable()
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('imported_at')
-                    ->label('Importēts')
+                    ->label(__('app.import_logs.imported'))
                     ->dateTime('d.m.Y H:i')
                     ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('shop_id')
-                    ->label('Veikals')
+                    ->label(__('app.common.shop'))
                     ->relationship('shop', 'name'),
 
                 Tables\Filters\Filter::make('imported_today')
-                    ->label('Importēts šodien')
+                    ->label(__('app.import_logs.imported_today'))
                     ->query(fn ($query) => $query->whereDate('imported_at', today())),
 
                 // 👇 Jauns filtrs pēc datuma un laika diapazona
                 Tables\Filters\Filter::make('imported_range')
-                    ->label('Importēts no/līdz')
+                    ->label(__('app.import_logs.imported_between'))
                     ->form([
                         Forms\Components\DateTimePicker::make('from')
-                            ->label('No'),
+                            ->label(__('app.import_logs.from')),
                         Forms\Components\DateTimePicker::make('to')
-                            ->label('Līdz'),
+                            ->label(__('app.import_logs.until')),
                     ])
                     ->query(function ($query, array $data) {
                         return $query
@@ -60,7 +60,7 @@ class ImportLogsTable
                                 $query->where('imported_at', '<=', $date));
                     }),
             ])
-            ->searchPlaceholder('Meklēt pēc veikala vai faila tipa...')
+            ->searchPlaceholder(__('app.import_logs.search_placeholder'))
             ->actions([])
             ->bulkActions([]);
     }

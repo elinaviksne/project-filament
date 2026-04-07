@@ -40,12 +40,12 @@ class ShopResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return 'Veikali';
+        return __('app.nav.shops');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Veikalu pārvaldība';
+        return __('app.nav.shop_management');
     }
 
     public static function getPages(): array

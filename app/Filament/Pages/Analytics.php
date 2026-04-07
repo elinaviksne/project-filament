@@ -84,11 +84,11 @@ class Analytics extends Page
 
     public static function getNavigationLabel(): string
     {
-        return 'Kopsavilkums';
+        return __('app.nav.analytics_summary');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Analītika';
+        return __('app.nav.analytics');
     }
 }

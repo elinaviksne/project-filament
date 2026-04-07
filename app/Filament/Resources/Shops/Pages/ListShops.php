@@ -17,19 +17,19 @@ class ListShops extends ListRecords
     {
         return [
             Action::make('sync')
-                ->label('Sinhronizēt visus datus')
+                ->label(__('app.shops.sync_all'))
                 ->icon('heroicon-o-arrow-path')
                 ->color('primary')
                 ->action(function (): void {
                     app(ShopSyncService::class)->syncAllFromApi();
 
                     Notification::make()
-                        ->title('Datu sinhronizācija pabeigta')
+                        ->title(__('app.shops.sync_done'))
                         ->success()
                         ->send();
                 }),
             CreateAction::make()
-                ->label('Pievienot veikalu')
+                ->label(__('app.shops.add_shop'))
                 ->color('primary'),
         ];
     }

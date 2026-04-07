@@ -19,30 +19,30 @@ class UsersTable
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Vārds')
+                    ->label(__('app.users.name'))
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('email')
-                    ->label('E-pasts')
+                    ->label(__('app.users.email'))
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\IconColumn::make('is_admin')
-                    ->label('Admin')
+                    ->label(__('app.users.admin_column'))
                     ->boolean(),
 
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label('Atjaunots')
+                    ->label(__('app.users.updated'))
                     ->dateTime('d.m.Y H:i')
                     ->sortable(),
             ])
             ->filters([
                 Tables\Filters\TernaryFilter::make('is_admin')
-                    ->label('Admin piekļuve')
-                    ->placeholder('Visi')
-                    ->trueLabel('Tikai admin')
-                    ->falseLabel('Tikai parastie'),
+                    ->label(__('app.users.filter_admin'))
+                    ->placeholder(__('app.users.filter_all'))
+                    ->trueLabel(__('app.users.filter_admins_only'))
+                    ->falseLabel(__('app.users.filter_users_only')),
             ])
             ->recordActions([
                 EditAction::make(),

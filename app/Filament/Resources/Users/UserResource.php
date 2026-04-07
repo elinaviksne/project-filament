@@ -40,12 +40,12 @@ class UserResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return 'Lietotāji';
+        return __('app.nav.users');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Lietotāju pārvaldība';
+        return __('app.nav.user_management');
     }
 
     public static function getPages(): array

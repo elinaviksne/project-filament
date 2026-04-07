@@ -19,18 +19,18 @@ class CategoriesTable
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nosaukums')
+                    ->label(__('app.common.name'))
                     ->sortable()
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('parent.name')
-                    ->label('Vecākā kategorija')
+                    ->label(__('app.categories.parent'))
                     ->sortable()
                     ->placeholder('-'),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('parent_id')
-                    ->label('Vecākā kategorija')
+                    ->label(__('app.categories.parent'))
                     ->relationship('parent', 'name'),
             ])
             ->recordActions([

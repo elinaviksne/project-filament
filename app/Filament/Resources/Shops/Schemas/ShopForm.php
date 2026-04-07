@@ -11,20 +11,20 @@ class ShopForm
     {
         return $schema->schema([
             Forms\Components\TextInput::make('name')
-                ->label('Nosaukums')
+                ->label(__('app.common.name'))
                 ->required()
                 ->maxLength(255),
 
             Forms\Components\TextInput::make('api_url')
-                ->label('API URL')
+                ->label(__('app.shops.api_url'))
                 ->url()
                 ->maxLength(255),
 
             Forms\Components\Select::make('status')
-                ->label('Statuss')
+                ->label(__('app.common.status'))
                 ->options([
-                    'active' => 'Aktīvs',
-                    'inactive' => 'Neaktīvs',
+                    'active' => __('app.common.active'),
+                    'inactive' => __('app.common.inactive'),
                 ])
                 ->default('active')
                 ->required(),

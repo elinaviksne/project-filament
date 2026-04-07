@@ -1,0 +1,117 @@
+<?php
+
+return [
+    'brand_name' => 'PriceMatch Admin',
+
+    'nav' => [
+        'shop_management' => 'Shop management',
+        'analytics' => 'Analytics',
+        'user_management' => 'User management',
+        'shops' => 'Shops',
+        'categories' => 'Categories',
+        'products' => 'Products',
+        'import_logs' => 'Import log',
+        'users' => 'Users',
+        'analytics_summary' => 'Overview',
+    ],
+
+    'common' => [
+        'logo' => 'Logo',
+        'status' => 'Status',
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+        'name' => 'Name',
+        'shop' => 'Shop',
+        'title' => 'Title',
+    ],
+
+    'shops' => [
+        'shop_name' => 'Shop name',
+        'last_updated' => 'Last updated',
+        'api_url' => 'API URL',
+        'sync_all' => 'Sync all data',
+        'sync_done' => 'Data synchronization completed',
+        'add_shop' => 'Add shop',
+    ],
+
+    'users' => [
+        'name' => 'Name',
+        'email' => 'Email',
+        'password' => 'Password',
+        'admin_access' => 'Admin access',
+        'admin_self_hint' => 'You cannot remove your own admin access from this screen.',
+        'admin_column' => 'Admin',
+        'updated' => 'Updated',
+        'filter_admin' => 'Admin access',
+        'filter_all' => 'All',
+        'filter_admins_only' => 'Admins only',
+        'filter_users_only' => 'Non-admins only',
+    ],
+
+    'categories' => [
+        'parent' => 'Parent category',
+        'sync' => 'Sync from API',
+        'sync_done' => 'Categories synchronized',
+    ],
+
+    'products' => [
+        'brand' => 'Brand',
+        'category' => 'Category',
+        'model' => 'Model',
+        'search_placeholder' => 'Search products...',
+        'sync' => 'Sync from API',
+        'sync_done' => 'Products synchronized',
+    ],
+
+    'import_logs' => [
+        'file_type' => 'File type',
+        'imported' => 'Imported',
+        'imported_today' => 'Imported today',
+        'imported_between' => 'Imported from / until',
+        'from' => 'From',
+        'until' => 'Until',
+        'search_placeholder' => 'Search by shop or file type...',
+    ],
+
+    'language' => [
+        'label' => 'Language',
+        'lv' => 'Latviešu',
+        'en' => 'English',
+    ],
+
+    'analytics' => [
+        'shop' => 'Shop',
+        'all_shops' => 'All shops',
+        'from_date' => 'From date',
+        'to_date' => 'To date',
+        'filter' => 'Filter',
+        'clear' => 'Clear',
+        'total_shops' => 'Total shops',
+        'active_shops' => 'Active shops',
+        'offers' => 'Offers',
+        'imports' => 'Imports',
+        'avg_price' => 'Average price',
+        'top_shops' => 'Top shops by offers',
+        'col_shop' => 'Shop',
+        'col_offers' => 'Offers',
+        'col_avg_price' => 'Avg. price',
+        'no_data_filters' => 'No data for the selected filters.',
+        'recent_imports' => 'Recent imports',
+        'col_file_type' => 'File type',
+        'col_imported_at' => 'Imported',
+        'no_imports' => 'No import records.',
+    ],
+
+    'welcome' => [
+        'log_in' => 'Log in',
+        'dashboard' => 'Dashboard',
+        'register' => 'Register',
+        'hero_title' => "Let's get started",
+        'hero_sub' => "Laravel has an incredibly rich ecosystem.\nWe suggest starting with the following.",
+        'docs_intro' => 'Read the',
+        'docs_link' => 'Documentation',
+        'laracasts_intro' => 'Watch video tutorials at',
+        'laracasts_link' => 'Laracasts',
+        'deploy' => 'Deploy now',
+    ],
+];

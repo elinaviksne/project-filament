@@ -14,14 +14,14 @@ class ImportLogForm
 
         return $schema->schema([
             Forms\Components\Select::make('shop_id')
-                ->label('Veikals')
+                ->label(__('app.common.shop'))
                 ->relationship('shop', 'name')
                 ->searchable()
                 ->preload()
                 ->required(),
 
             Forms\Components\TextInput::make('file_type')
-                ->label('Faila tips')
+                ->label(__('app.import_logs.file_type'))
                 ->required(),
 
             Forms\Components\Hidden::make('imported_at')

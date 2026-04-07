@@ -16,35 +16,35 @@ class ProductsTable
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nosaukums')
+                    ->label(__('app.common.name'))
                     ->sortable()
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('model')
-                    ->label('Modelis')
+                    ->label(__('app.products.model'))
                     ->sortable()
                     ->searchable(),    
 
                 Tables\Columns\TextColumn::make('category.name')
-                    ->label('Kategorija')
+                    ->label(__('app.products.category'))
                     ->sortable()
                     ->searchable(),
 
                 Tables\Columns\TextColumn::make('brand.name')
-                    ->label('Zīmols')
+                    ->label(__('app.products.brand'))
                     ->sortable()
                     ->searchable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('brand_id')
-                    ->label('Zīmols')
+                    ->label(__('app.products.brand'))
                     ->relationship('brand', 'name'),
 
                 Tables\Filters\SelectFilter::make('category_id')
-                    ->label('Kategorija')
+                    ->label(__('app.products.category'))
                     ->relationship('category', 'name'),
             ])
-            ->searchPlaceholder('Meklēt produktus...')
+            ->searchPlaceholder(__('app.products.search_placeholder'))
             ->actions([
                 
             ])
