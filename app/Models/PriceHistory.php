@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PriceHistory extends Model
 {
     use HasFactory;
+
+    protected $table = 'price_history';
+
     protected $fillable = ['product_id', 'shop_id', 'price', 'timestamp'];
 
     public function product()

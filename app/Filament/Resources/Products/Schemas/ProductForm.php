@@ -20,15 +20,11 @@ class ProductForm
                 ->required()
                 ->maxLength(255),
 
-            Forms\Components\Select::make('category')
+            Forms\Components\Select::make('category_id')
                 ->label('Kategorija')
-                ->options([
-                    'electronics' => 'Elektronika',
-                    'home' => 'Mājas preces',
-                    'toys' => 'Rotaļlietas',
-                    'clothing' => 'Apģērbi',
-                ])
-                ->searchable(),
+                ->relationship('category', 'name')
+                ->searchable()
+                ->preload(),
 
             Forms\Components\Select::make('brand_id')
                 ->label('Zīmols')

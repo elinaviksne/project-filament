@@ -25,7 +25,7 @@ class ProductsTable
                     ->sortable()
                     ->searchable(),    
 
-                Tables\Columns\TextColumn::make('category')
+                Tables\Columns\TextColumn::make('category.name')
                     ->label('Kategorija')
                     ->sortable()
                     ->searchable(),
@@ -40,14 +40,9 @@ class ProductsTable
                     ->label('Zīmols')
                     ->relationship('brand', 'name'),
 
-                Tables\Filters\SelectFilter::make('category')
+                Tables\Filters\SelectFilter::make('category_id')
                     ->label('Kategorija')
-                    ->options([
-                        'electronics' => 'Elektronika',
-                        'home' => 'Mājas preces',
-                        'toys' => 'Rotaļlietas',
-                        'clothing' => 'Apģērbi',
-                    ]),
+                    ->relationship('category', 'name'),
             ])
             ->searchPlaceholder('Meklēt produktus...')
             ->actions([

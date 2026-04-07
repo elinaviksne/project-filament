@@ -13,6 +13,10 @@ class ImportLog extends Model
 
     protected $fillable = ['shop_id', 'file_type', 'imported_at'];
 
+    protected $casts = [
+        'imported_at' => 'datetime',
+    ];
+
     public function shop()
     {
         return $this->belongsTo(Shop::class);
