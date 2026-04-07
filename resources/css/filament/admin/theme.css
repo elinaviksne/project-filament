@@ -1,0 +1,36 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+:root {
+    --pm-blue: #0f3f66;
+    --pm-orange: #de8d43;
+}
+
+.fi-sidebar,
+.fi-topbar {
+    border-color: color-mix(in srgb, var(--pm-blue) 15%, transparent);
+}
+
+.fi-sidebar-item-button {
+    border-radius: 0.65rem;
+}
+
+.fi-sidebar-item.fi-active .fi-sidebar-item-button {
+    background: color-mix(in srgb, var(--pm-blue) 14%, transparent);
+    color: var(--pm-blue);
+}
+
+.fi-btn-color-primary {
+    background-color: var(--pm-blue);
+}
+
+.fi-btn-color-primary:hover {
+    background-color: color-mix(in srgb, var(--pm-blue) 88%, black);
+}
+
+.fi-section {
+    border-radius: 0.9rem;
+}
+
+.fi-ta-header-toolbar {
+    border-top: 3px solid var(--pm-orange);
+}

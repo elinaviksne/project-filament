@@ -18,7 +18,8 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
+    protected static ?int $navigationSort = 30;
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -37,6 +38,16 @@ class CategoryResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Kategorijas';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Analītika';
     }
 
     public static function getPages(): array

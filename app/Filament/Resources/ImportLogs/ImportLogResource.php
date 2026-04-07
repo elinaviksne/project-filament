@@ -18,9 +18,10 @@ class ImportLogResource extends Resource
 {
     protected static ?string $model = ImportLog::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedArrowDownTray;
+    protected static ?int $navigationSort = 40;
 
-    protected static ?string $recordTitleAttribute = 'source';
+    protected static ?string $recordTitleAttribute = 'file_type';
 
     public static function form(Schema $schema): Schema
     {
@@ -37,6 +38,16 @@ class ImportLogResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Importu žurnāls';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Analītika';
     }
 
     public static function getPages(): array

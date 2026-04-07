@@ -18,7 +18,8 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedArchiveBox;
+    protected static ?int $navigationSort = 20;
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -37,6 +38,16 @@ class ProductResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Produkti';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Analītika';
     }
 
     public static function getPages(): array
