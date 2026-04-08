@@ -48,19 +48,24 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::AUTH_LOGIN_FORM_BEFORE,
                 fn (): \Illuminate\Contracts\View\View => view('filament.hooks.language-switcher'),
             )
+            ->renderHook(
+                PanelsRenderHook::GLOBAL_SEARCH_AFTER,
+                fn (): \Illuminate\Contracts\View\View => view('filament.hooks.topbar-language-switcher'),
+            )
             ->userMenuItems([
-                Action::make('localeLv')
-                    ->label(fn (): string => __('app.language.lv'))
-                    ->icon('heroicon-o-language')
-                    ->url(fn (): string => route('locale.switch', ['locale' => 'lv']))
-                    ->disabled(fn (): bool => app()->getLocale() === 'lv')
-                    ->sort(5),
-                Action::make('localeEn')
-                    ->label(fn (): string => __('app.language.en'))
-                    ->icon('heroicon-o-language')
-                    ->url(fn (): string => route('locale.switch', ['locale' => 'en']))
-                    ->disabled(fn (): bool => app()->getLocale() === 'en')
-                    ->sort(6),
+                Action::make('switchContext')
+                    ->label(fn (): string => request()->routeIs('filament.admin.*')
+                        ? __('app.home.back_to_home')
+                        : __('app.home.go_to_admin'))
+                    ->icon(fn (): string => request()->routeIs('filament.admin.*')
+                        ? 'heroicon-o-home'
+                        : 'heroicon-o-squares-2x2')
+                    ->url(fn (): string => request()->routeIs('filament.admin.*')
+                        ? route('home')
+                        : filament()->getUrl())
+                    ->visible(fn (): bool => request()->routeIs('filament.admin.*')
+                        || (bool) filament()->auth()->user()?->is_admin)
+                    ->sort(-1),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')

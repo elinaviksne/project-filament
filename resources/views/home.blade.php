@@ -1,9 +1,47 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    dir="{{ __('filament-panels::layout.direction') ?? 'ltr' }}"
+    class="fi"
+>
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PriceMatch</title>
+    @filamentStyles
+    {{ filament()->getTheme()->getHtml() }}
+    {{ filament()->getFontHtml() }}
+    <script>
+        const loadDarkMode = () => {
+            const theme = localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value);
+            const shouldUseDark =
+                theme === 'dark' ||
+                (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+            document.documentElement.classList.toggle('dark', shouldUseDark);
+        };
+
+        const syncThemeStore = () => {
+            if (! window.Alpine) return;
+            Alpine.store('theme', localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value));
+        };
+
+        loadDarkMode();
+        document.addEventListener('alpine:init', syncThemeStore);
+
+        window.addEventListener('theme-changed', () => {
+            loadDarkMode();
+            syncThemeStore();
+        });
+    </script>
+    <style>
+        [x-cloak=''],
+        [x-cloak='x-cloak'],
+        [x-cloak='1'] {
+            display: none !important;
+        }
+    </style>
     <style>
         :root {
             --pm-blue: #0f3f66;
@@ -20,6 +58,11 @@
             background: #fff;
         }
 
+        html.dark body {
+            color: #e5e7eb;
+            background: #0b1220;
+        }
+
         .home-header {
             display: flex;
             align-items: center;
@@ -27,6 +70,11 @@
             padding: 0.75rem 1.5rem;
             border-bottom: 1px solid #d9d9d9;
             gap: 1rem;
+        }
+
+        html.dark .home-header {
+            border-bottom-color: #1f2937;
+            background: #0f172a;
         }
 
         .home-left {
@@ -47,6 +95,10 @@
             color: #173f5f;
         }
 
+        html.dark .home-nav {
+            color: #cbd5e1;
+        }
+
         .home-nav a {
             color: inherit;
             text-decoration: none;
@@ -59,6 +111,23 @@
             gap: 0.65rem;
         }
 
+        .home-profile-btn {
+            border: 1px solid #d5deea;
+            background: #fff;
+            color: #334155;
+            border-radius: 0.45rem;
+            padding: 0.45rem 0.8rem;
+            font-size: 0.86rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        html.dark .home-profile-btn {
+            border-color: #334155;
+            background: #0b1220;
+            color: #e5e7eb;
+        }
+
         .home-locale a {
             color: #6b7280;
             text-decoration: none;
@@ -69,6 +138,14 @@
         .home-locale a.active {
             color: var(--pm-blue);
             font-weight: 700;
+        }
+
+        html.dark .home-locale a {
+            color: #94a3b8;
+        }
+
+        html.dark .home-locale a.active {
+            color: #f8fafc;
         }
 
         .home-btn {
@@ -102,6 +179,10 @@
             padding: 0.6rem 0.5rem;
         }
 
+        html.dark .home-section-title {
+            color: #111827;
+        }
+
         .home-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(180px, 1fr));
@@ -114,6 +195,11 @@
             background: var(--pm-bg);
             text-align: center;
             padding: 0.7rem 0.6rem 0.8rem;
+        }
+
+        html.dark .home-card {
+            border-color: #334155;
+            background: #0f172a;
         }
 
         .home-card-visual {
@@ -138,10 +224,18 @@
             margin: 0;
         }
 
+        html.dark .home-card-price {
+            color: #fb7185;
+        }
+
         .home-empty {
             text-align: center;
             color: #6b7280;
             margin: 1.5rem 0;
+        }
+
+        html.dark .home-empty {
+            color: #94a3b8;
         }
 
         @media (max-width: 1000px) {
@@ -156,7 +250,7 @@
         }
     </style>
 </head>
-<body>
+<body class="fi-body fi-panel-admin">
     <header class="home-header">
         <div class="home-left">
             <img src="{{ asset('images/pricematch-logo.png') }}" alt="PriceMatch" class="home-logo">
@@ -174,11 +268,9 @@
                 <a href="{{ route('locale.switch', ['locale' => 'en']) }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
             </div>
             @auth
-                <span style="font-size: 0.85rem; color: #334155;">{{ auth()->user()->name }}</span>
-                <form method="POST" action="{{ route('logout') }}" style="display:inline;">
-                    @csrf
-                    <button class="home-btn home-btn-ghost" type="submit">{{ __('app.home.logout') }}</button>
-                </form>
+                <div class="fi">
+                    @livewire(\Filament\Livewire\SimpleUserMenu::class)
+                </div>
             @else
                 <a class="home-btn home-btn-ghost" href="{{ route('login') }}">{{ __('app.home.sign_in') }}</a>
                 <a class="home-btn" href="{{ route('register') }}">{{ __('app.home.sign_up') }}</a>
@@ -227,5 +319,6 @@
             @endif
         </section>
     </main>
+    @filamentScripts(withCore: true)
 </body>
 </html>

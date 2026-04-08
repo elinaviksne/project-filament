@@ -15,6 +15,16 @@ Route::get('/locale/{locale}', function (string $locale) {
     return redirect()->back();
 })->name('locale.switch');
 
+Route::get('/theme/{theme}', function (string $theme) {
+    if (! in_array($theme, ['light', 'dark', 'system'], true)) {
+        abort(404);
+    }
+
+    session(['theme' => $theme]);
+
+    return redirect()->back();
+})->name('theme.switch');
+
 Route::get('/', function () {
     $products = Product::query()
         ->withMin('offers', 'price')
